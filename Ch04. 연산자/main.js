@@ -112,3 +112,12 @@ console.log(n1);
 console.log(n2);
 let n3 = !1; //숫자나 문자값은 true값
 console.log(n3);
+
+/*
+삼항 연산자
+ - 조건식 ? 값1 : 값2
+ - 조건식이 true이면 값1을 반환하고, false이면 값2를 반환한다.
+*/
+let number = 11;
+let result2 = number % 2 == 1 ? "홀수입니다." : "짝수입니다.";
+console.log(result2);
