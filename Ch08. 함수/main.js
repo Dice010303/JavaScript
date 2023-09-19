@@ -51,3 +51,65 @@ function  sum(num1,num2){
 }
 let result = sum(3,5);
 console.log(result);
+
+/*
+함수 스코프
+-전역 스코프: 최상단에 선언된 함수
+-블록 스코프: 블록 단위로 선언된 함수
+-같은 블록 안의 변수만 사용이 가능하다.
+-자식은 부모것을 사용할 수 있다.
+ */
+function aBlock(){
+    let name="최영준";
+    function bBlock(){
+        let age = "100";
+        console.log(age);
+        console.log(name);
+    }
+    //console.log(age); // 자식 변수는 사용 불가
+}
+aBlock();
+
+/*
+Arrow Function
+-ES6에서 추가된 화살표 표기법이다.
+-function 예약어를 생략할 수 있다.
+-함수에 파라미터(매개변수)가 하나뿐이면 괄호를 생략할 수 있다.
+-함수 블록안에 표현식이 하나라면 중괄호와  return도 생략할 수 있다.
+ */
+let f1 = function(){
+    console.log("f1");
+};
+let f2 = () =>{
+    console.log("f1");
+};
+f1();
+f2();
+
+let f3 = function(name){
+    console.log(name);
+};
+//파라미터 괄호 생략,블록 중괄호 생략
+let f4 = (name)=>console.log(name);
+f3("최영준");
+f4("최영준");
+
+let f5=function (a,b){
+    return a+b;
+};
+let f6=(a,b)=>a+b;
+let result2=f6(2,3);
+console.log(result2);
+
+/*
+콜백함수
+-다른 함수가 실행을 끝낸 뒤 다시 호출되는 함수
+ */
+function func(){
+    console.log("수행");
+    callBack();
+}
+function callBack(){
+    console.log("콜백함수");
+}
+func();
