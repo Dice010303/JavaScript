@@ -165,3 +165,5 @@ function getMaxValue(array){
 }
 let array2 = [10,5,2,1,15,30,19];
 console.log(getMaxValue(array2));
+
+console.log("1");
