@@ -78,9 +78,9 @@ btn2.removeEventListener("click", event1); // 위에서 함수명으로 등록�
 // 마우스 이벤트
 let event = document.getElementById("event1");
 
-event.addEventListener("mousemove", function () {
-    alert("hello");
-});
+// event.addEventListener("mousemove", function () {
+//     alert("hello");
+// });
 
 // 키보드 이벤트
 let event3 = document.querySelector("#event3");
