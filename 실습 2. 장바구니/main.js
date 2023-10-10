@@ -1,23 +1,30 @@
-
-//장바구니 담기
-
-let num = document.querySelectorAll(".product")
-
-for(let i=0;i<num.length ; i++) {
-    let product = num[i];
-    let addBtn = product.querySelector(".addCart");
-    addBtn.addEventListener('click', addcart);
+let products = document.querySelectorAll(".product");
+for (let i = 0; i < products.length; i++) {
+    let product = products[i];
+    let addToCartBtn = product.querySelector(".addCart");
+    addToCartBtn.addEventListener("click", addToCart);
 }
 
-function addcart(event) {
+function addToCart(event) {
     let product = event.target.parentElement;
-    let product_name = product.querySelector("span").textContent;
-    let price = product.querySelector(".price").textContent;
-    let origin_price = price.slice(0,-1);
-    let quantify = product.querySelector(".quantify").value;
-    console.log(quantify);
+    let name = product.querySelector("span").textContent;
+    let priceText = product.querySelector(".price").textContent; //문자열을 숫자로 반환
+    let price = parseInt(priceText.slice(0, -1));
+    let quantity = parseInt(product.querySelector(".quantity").value);
 
-    let result = document.createElement("li");
-    result.textContent=product_name +"    "+ quantify + "개" +"     " + price;
-    document.querySelector("ul").appendChild(result);
+    if (quantity > 0) {
+        //장바구니 목록 추가
+        let cartItem = document.createElement("li");
+        cartItem.textContent =
+            name + " [" + quantity + "개]  : " + price * quantity + "원";
+
+        let cartList = document.querySelector(".cartList");
+        cartList.appendChild(cartItem);
+
+        //총 주문금액 수정
+        let totalPriceElement = document.querySelector(".totalPrice");
+        let totalPrice = parseInt(totalPriceElement.textContent.slice(0, -1));
+        totalPrice += price * quantity;
+        totalPriceElement.textContent = totalPrice + "원";
+    }
 }
